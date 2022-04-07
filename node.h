@@ -22,7 +22,7 @@ struct Node {
 		if(next != nullptr)
 			next->killSelf();
 		delete this;
-	}    
+	}
 };
 
 #endif
