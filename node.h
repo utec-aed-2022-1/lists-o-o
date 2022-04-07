@@ -3,21 +3,26 @@
 
 template <typename T>
 struct Node {
-    T data;
-    Node<T>* next;
-    Node<T>* prev;
+	T data;
+	Node<T>* next;
+	Node<T>* prev;
 
-    Node(){ 
-        // TODO
-    }
+	Node(){
+		Node(0);
+	}
 
-    Node(T value){
-        // TODO
-    }
+	Node(T value) : next(nullptr), prev(nullptr), data(value) {}
 
-    void killSelf(){
-        // TODO      
-    }    
+	~Node() {
+		if(next)
+			delete next;
+	}
+
+	void killSelf() {
+		if(next != nullptr)
+			next->killSelf();
+		delete this;
+	}    
 };
 
 #endif
