@@ -13,10 +13,7 @@ struct Node {
 
 	Node(T value) : next(nullptr), prev(nullptr), data(value) {}
 
-	~Node() {
-		if(next)
-			delete next;
-	}
+	~Node() = default;
 
 	void killSelf() {
 		if(next != nullptr)

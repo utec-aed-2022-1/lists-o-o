@@ -1,6 +1,7 @@
 #ifndef FORWARD_H
 #define FORWARD_H
 #include <iostream>
+#include <string>
 #include "list.h"
 
 // TODO: Implement all methods
@@ -19,7 +20,7 @@ class ForwardList : public List<T> {
 
 		~ForwardList() { 
 			if(head)
-				delete head;
+				head->killSelf();
 		}
 
 		T front() {
@@ -107,7 +108,7 @@ class ForwardList : public List<T> {
 		}
 
 		T insert(T data, int pos) {
-			if(pos < 0 || index > size()-1)
+			if(pos < 0 || pos > size()-1)
 				throw std::invalid_argument("Invalid position");
 
 			if(pos == 0) 
@@ -129,7 +130,7 @@ class ForwardList : public List<T> {
 		}
 
 		bool remove(int pos) {
-			if(pos < 0 || index > size()-1) {
+			if(pos < 0 || pos > size()-1) {
 				return false;
 				throw std::invalid_argument("Invalid position");
 			}
@@ -146,7 +147,6 @@ class ForwardList : public List<T> {
 
 				Node<T> *node = tmp->next;
 				tmp->next = node->next;
-				node->next = nullptr;
 				delete node;
 				nodes--;
 			}
@@ -155,11 +155,11 @@ class ForwardList : public List<T> {
 		}
 
 		T& operator[](int pos) {
-			if (pos < 0 || index > size() - 1)
+			if (pos < 0 || pos > size() - 1)
 				throw std::invalid_argument("Invalid position");
 
 			Node<T> *tmp = head;
-			for (int i=0; i<index; i++)
+			for (int i=0; i<pos; i++)
 				tmp = tmp->next;
 			return tmp->data;
 		}
@@ -174,8 +174,10 @@ class ForwardList : public List<T> {
 
 		void clear() {
 			if(head) {
-				delete head;
+				head->killSelf();
 				head = nullptr;
+				tail = nullptr;
+				nodes = 0;
 			}
 		}
 		
@@ -209,11 +211,29 @@ class ForwardList : public List<T> {
 		}
 
 		void reverse() {
-			throw ("sin definir");
+			Node<T>* tmp = head;
+			tail = head;
+            Node<T>* tmphead = new Node<T>();
+
+            for(int i = 0; i < nodes; i++){
+                head = tmp->next;
+                tmp->next = tmphead->next;
+			    tmphead->next = tmp;
+			    tmp = head;
+			}
+            tail->next = nullptr;
+            head = tmphead->next;
+            cout<<head->data<<" "<<tail->data<<endl;
 		}
 
 		std::string name() {
-			return "ForwardList";
+			Node<T>* tmp = head;
+			std::string result;
+            for(int i = 0; i < nodes; i++) {
+                result += std::to_string(tmp->data) + " ";
+                tmp = tmp->next;
+            }
+            return result;
 		}
 		
 };

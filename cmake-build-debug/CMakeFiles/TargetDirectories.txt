@@ -1,0 +1,3 @@
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/cmake-build-debug/CMakeFiles/lists_o_o.dir
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/cmake-build-debug/CMakeFiles/rebuild_cache.dir
