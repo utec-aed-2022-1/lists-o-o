@@ -4,7 +4,6 @@
 #include <string>
 #include "list.h"
 
-// TODO: Implement all methods
 template <typename T>
 class ForwardList : public List<T> {
 	private:
