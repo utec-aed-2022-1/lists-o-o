@@ -21,6 +21,9 @@ class ForwardList : public List<T> {
 		~ForwardList() { 
 			if(head)
 				head->killSelf();
+            head = nullptr;
+            tail = nullptr;
+            nodes = 0;
 		}
 
 		T front() {
@@ -223,7 +226,8 @@ class ForwardList : public List<T> {
 			}
             tail->next = nullptr;
             head = tmphead->next;
-            cout<<head->data<<" "<<tail->data<<endl;
+
+            delete tmphead;
 		}
 
 		std::string name() {

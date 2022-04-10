@@ -1,7 +1,7 @@
 #include <iostream>
 #include "tester.h"
 #include "forward.h"
-// #include "double.h"
+#include "double.h"
 // #include "circular.h"
 
 using namespace std;
@@ -25,6 +25,8 @@ void test(List<int>* list){
 	ASSERT(list->is_sorted() == false, "The function is_sorted is not working");
 	list->sort();
 	ASSERT(list->is_sorted() == true, "The function sort is not working");
+	list->reverse();
+	cout<<"nombre: "<<list->name();
 	list->clear();
 	ASSERT(list->is_empty() == true, "The function clear is not working");
 	delete list;
@@ -35,8 +37,8 @@ int main() {
 	List<int> *forward = new ForwardList<int>();
 	test(forward);
 
-	// List<int> *doble = new DoubleList<int>();
-	// test(doble);
+	List<int> *doble = new DoubleList<int>();
+	test(doble);
 
 	// List<int> *circular = new CircularList<int>();
 	// test(circular);

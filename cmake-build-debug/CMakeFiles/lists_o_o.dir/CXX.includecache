@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/double.h
+iostream
+-
+string
+-
+list.h
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/list.h
+
 C:/Users/Mauricio/Documents/GitHub/lists-o-o/forward.h
 iostream
 -
@@ -29,6 +37,8 @@ tester.h
 C:/Users/Mauricio/Documents/GitHub/lists-o-o/tester.h
 forward.h
 C:/Users/Mauricio/Documents/GitHub/lists-o-o/forward.h
+double.h
+C:/Users/Mauricio/Documents/GitHub/lists-o-o/double.h
 
 C:/Users/Mauricio/Documents/GitHub/lists-o-o/node.h
 
