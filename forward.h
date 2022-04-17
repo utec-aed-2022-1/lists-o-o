@@ -59,9 +59,8 @@ class ForwardList : public List<T> {
 			} else {
 				tail->next = node;
 				tail = node;
+				nodes++;
 			}
-
-			nodes++;
 		}
 
 		T pop_front() {
