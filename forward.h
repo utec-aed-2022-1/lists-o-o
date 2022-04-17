@@ -39,13 +39,11 @@ class ForwardList : public List<T> {
 		void push_front(T data) {
 			Node<T>* node = new Node<T>(data);
 
-			if(is_empty()) {
-				head = node;
+			if(is_empty()) 
 				tail = node;
-			} else {
+			else 
 				node->next = head;
-				head = node;
-			}
+			head = node;
 
 			nodes++;
 		}
@@ -67,7 +65,7 @@ class ForwardList : public List<T> {
 			if(is_empty())
 				throw std::invalid_argument("It's empty");
 
-			int data = head->data;
+			int data = front();
 
 			if(size() == 1) {
 				delete head;
@@ -87,7 +85,7 @@ class ForwardList : public List<T> {
 			if(is_empty())
 				throw std::invalid_argument("It's empty");
 
-			int data = tail->data;
+			int data = back();
 
 			if(size() == 1) {
 				delete head;
@@ -159,7 +157,7 @@ class ForwardList : public List<T> {
 				throw std::invalid_argument("Invalid position");
 
 			Node<T> *tmp = head;
-			for (int i=0; i<index; i++)
+			for(int i=0; i<index; i++)
 				tmp = tmp->next;
 			return tmp->data;
 		}
@@ -209,7 +207,7 @@ class ForwardList : public List<T> {
 		}
 
 		void reverse() {
-			throw ("sin definir");
+			
 		}
 
 		std::string name() {
