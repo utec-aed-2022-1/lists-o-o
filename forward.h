@@ -67,7 +67,7 @@ class ForwardList : public List<T> {
 			if(is_empty())
 				throw std::invalid_argument("It's empty");
 
-			int data = front();
+			T data = front();
 
 			if(size() == 1) {
 				delete head;
