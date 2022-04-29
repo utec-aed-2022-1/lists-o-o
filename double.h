@@ -71,7 +71,7 @@ public:
         if(is_empty())
             throw std::invalid_argument("It's empty");
 
-        int data = head->data;
+        T data = head->data;
 
         if(size() == 1) {
             delete head;
@@ -92,7 +92,7 @@ public:
         if(is_empty())
             throw std::invalid_argument("It's empty");
 
-        int data = tail->data;
+        T data = tail->data;
 
         if(size() == 1) {
             delete head;
